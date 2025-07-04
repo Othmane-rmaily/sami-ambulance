@@ -385,7 +385,7 @@ function App() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-blue-900 dark:text-white focus:outline-none ml-2 p-2 rounded-lg hover:bg-blue-100 dark:hover:bg-gray-800 transition-all duration-200"
+            className="md:hidden bg-transparent border-none text-gray-700 dark:text-gray-200 hover:bg-gray-200/30 dark:hover:bg-gray-700/30 transition-all duration-200 focus:outline-none ml-2 p-2 rounded-lg"
             aria-label="Ouvrir le menu"
           >
             <svg className="w-7 h-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -407,7 +407,7 @@ function App() {
               {/* Backdrop */}
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.4 }}
+                animate={{ opacity: 0.15 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
                 className="absolute inset-0 bg-black"
@@ -420,15 +420,15 @@ function App() {
                 exit={{ x: 100 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 className={
-                  `relative ml-auto w-72 h-full flex flex-col pt-16 px-6 gap-6 rounded-l-2xl border-l 
-                  ${darkMode ? 'bg-gray-900/95 border-gray-800 text-white' : 'bg-white/90 border-white/40 text-blue-900'} 
+                  `relative ml-auto w-72 h-full flex flex-col pt-16 px-6 gap-6 rounded-l-2xl border-l \
+                  bg-white/60 dark:bg-gray-900/60 border-none text-blue-900 dark:text-white \
                   backdrop-blur-lg shadow-2xl`
                 }
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="absolute top-4 right-4 text-2xl text-gray-700 dark:text-gray-200 hover:text-red-500 focus:outline-none"
+                  className="absolute top-4 right-4 text-2xl bg-transparent border-none text-gray-700 dark:text-gray-200 hover:text-red-500 focus:outline-none p-2 rounded-lg"
                   aria-label="Fermer le menu"
                 >
                   &times;
@@ -492,6 +492,8 @@ function App() {
           </div>
         </section>
         <EngagementsSection darkMode={darkMode} />
+        {/* Add an anchor for About section with the correct id */}
+        <div id="about" />
         <AboutSection darkMode={darkMode} />
         {/* Floating Contact Buttons */}
         <div className="fixed bottom-5 right-5 flex flex-col gap-3 z-50 items-end">
