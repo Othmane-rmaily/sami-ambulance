@@ -136,7 +136,7 @@ function HeroSection({ darkMode }) {
           whileTap={{ scale: 0.95 }}
           className="mt-6 inline-block bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition text-lg font-semibold"
         >
-          📞 Appeler maintenant
+          📞  06 66 85 85 69
         </motion.a>
       </div>
     </section>
