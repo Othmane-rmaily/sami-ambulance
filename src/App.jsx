@@ -11,6 +11,7 @@ import oxygeneADomicileImg from "./assets/oxygene-a-domicile.jpg";
 import infirmiereADomicileImg from "./assets/infirmiere-a-domicile.jpg";
 import transportAccompagneImg from "./assets/transport-accompagne.jpg";
 import logoImg from "./assets/logo.png";
+import { Helmet } from "react-helmet";
 
 const servicesData = [
   {
@@ -345,229 +346,248 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className={darkMode ? "min-h-screen bg-gray-900 text-white transition-colors duration-300" : "min-h-screen bg-white text-gray-900 transition-colors duration-300"}>
-      {/* Main Nav Bar */}
-      <header className="w-full sticky top-0 z-50">
-        <nav className={
-          `max-w-7xl mx-auto px-4 py-3 flex items-center justify-between 
-          ${darkMode ? 'bg-gray-900/80 border-b border-gray-800' : 'bg-white/70 border-b border-white/40'} 
-          backdrop-blur-md shadow-lg rounded-b-2xl transition-all duration-300`}
-        >
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <img src={logoImg} alt="First Ambulance Logo" className="h-12 w-auto drop-shadow-md transition-transform duration-200 hover:scale-105" />
-          </a>
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Accueil</a>
-            <a href="#services" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Services</a>
-            <a href="#engagements" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Nos Engagements</a>
-            <a href="#about" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>A propos de nous</a>
-          </div>
-          {/* Call to Action Button */}
-          <a href="tel:0666858569" className={`hidden md:inline-block ml-6 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 focus:ring-2 focus:ring-red-300 ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`}>Appeler</a>
-          {/* Dark/Light Toggle Button */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="ml-4 p-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
-            aria-label="Toggle dark mode"
+    <>
+      <Helmet>
+        <title>First Ambulance | Ambulance Privée et Médicalisée 24/7 au Maroc</title>
+        <meta name="description" content="Service d'ambulance privée et médicalisée disponible 24h/24 et 7j/7 partout au Maroc. Intervention rapide, personnel qualifié, équipement moderne." />
+        <meta name="keywords" content="ambulance Casablanca, ambulance Maroc, transport médical, SAMU, urgence, service médicalisé, soins à domicile, infirmière, médecin à domicile" />
+        <meta property="og:title" content="First Ambulance | Service d'Ambulance Privée au Maroc" />
+        <meta property="og:description" content="Ambulances médicalisées et urgences 24h/7 dans tout le Maroc. Contact rapide via appel ou WhatsApp." />
+        <meta property="og:image" content="/src/assets/logo.png" />
+        <meta property="og:url" content="https://ambulance.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="First Ambulance – Urgences Médicales Maroc 24h/7" />
+        <meta name="twitter:description" content="Ambulances privées, transferts médicalisés, personnel SAMU formé – Partout au Maroc." />
+        <meta name="twitter:image" content="/src/assets/logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Language" content="fr" />
+        <html lang="fr" />
+      </Helmet>
+      <div className={darkMode ? "min-h-screen bg-gray-900 text-white transition-colors duration-300" : "min-h-screen bg-white text-gray-900 transition-colors duration-300"}>
+        {/* Main Nav Bar */}
+        <header className="w-full sticky top-0 z-50">
+          <nav className={
+            `max-w-7xl mx-auto px-4 py-3 flex items-center justify-between 
+            ${darkMode ? 'bg-gray-900/80 border-b border-gray-800' : 'bg-white/70 border-b border-white/40'} 
+            backdrop-blur-md shadow-lg rounded-b-2xl transition-all duration-300`}
           >
-            {darkMode ? (
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0112 21.75c-5.385 0-9.75-4.365-9.75-9.75 0-4.136 2.664-7.64 6.418-9.093a.75.75 0 01.908.911A7.501 7.501 0 0019.5 12c0 1.273-.237 2.492-.67 3.617a.75.75 0 01.922.92z" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5M12 19.5V21M4.219 4.219l1.061 1.061M17.657 17.657l1.06 1.06M3 12h1.5M19.5 12H21M4.219 19.781l1.061-1.061M17.657 6.343l1.06-1.06M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
-              </svg>
-            )}
-          </button>
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden bg-transparent border-none text-gray-700 dark:text-gray-200 hover:bg-gray-200/30 dark:hover:bg-gray-700/30 transition-all duration-200 focus:outline-none ml-2 p-2 rounded-lg"
-            aria-label="Ouvrir le menu"
-          >
-            <svg className="w-7 h-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
-            </svg>
-          </button>
-        </nav>
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex"
-              style={{ pointerEvents: 'auto' }}
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-2">
+              <img src={logoImg} alt="First Ambulance Logo" className="h-12 w-auto drop-shadow-md transition-transform duration-200 hover:scale-105" />
+            </a>
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#home" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Accueil</a>
+              <a href="#services" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Services</a>
+              <a href="#engagements" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Nos Engagements</a>
+              <a href="#about" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>A propos de nous</a>
+            </div>
+            {/* Call to Action Button */}
+            <a href="tel:0666858569" className={`hidden md:inline-block ml-6 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 focus:ring-2 focus:ring-red-300 ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`}>Appeler</a>
+            {/* Dark/Light Toggle Button */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="ml-4 p-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
+              aria-label="Toggle dark mode"
             >
-              {/* Backdrop */}
+              {darkMode ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0112 21.75c-5.385 0-9.75-4.365-9.75-9.75 0-4.136 2.664-7.64 6.418-9.093a.75.75 0 01.908.911A7.501 7.501 0 0019.5 12c0 1.273-.237 2.492-.67 3.617a.75.75 0 01.922.92z" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5M12 19.5V21M4.219 4.219l1.061 1.061M17.657 17.657l1.06 1.06M3 12h1.5M19.5 12H21M4.219 19.781l1.061-1.061M17.657 6.343l1.06-1.06M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
+                </svg>
+              )}
+            </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden bg-transparent border-none text-gray-700 dark:text-gray-200 hover:bg-gray-200/30 dark:hover:bg-gray-700/30 transition-all duration-200 focus:outline-none ml-2 p-2 rounded-lg"
+              aria-label="Ouvrir le menu"
+            >
+              <svg className="w-7 h-7" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+              </svg>
+            </button>
+          </nav>
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {isMenuOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.15 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="absolute inset-0 bg-black"
-              />
-              {/* Menu Panel */}
-              <motion.div
-                ref={menuRef}
-                initial={{ x: 100 }}
-                animate={{ x: 0 }}
-                exit={{ x: 100 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className={
-                  `relative ml-auto w-72 h-full flex flex-col pt-16 px-6 gap-6 rounded-l-2xl border-l \
-                  bg-white/60 dark:bg-gray-900/60 border-none text-blue-900 dark:text-white \
-                  backdrop-blur-lg shadow-2xl`
-                }
+                className="fixed inset-0 z-50 flex"
+                style={{ pointerEvents: 'auto' }}
               >
-                {/* Close Button */}
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="absolute top-4 right-4 text-2xl bg-transparent border-none text-gray-700 dark:text-gray-200 hover:text-red-500 focus:outline-none p-2 rounded-lg"
-                  aria-label="Fermer le menu"
-                >
-                  &times;
-                </button>
-                <a href="#home" onClick={() => setIsMenuOpen(false)} className={
-                  `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                  ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
-                }>Accueil</a>
-                <a href="#engagements" onClick={() => setIsMenuOpen(false)} className={
-                  `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                  ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
-                }>Nos Engagements</a>
-                <a href="#about" onClick={() => setIsMenuOpen(false)} className={
-                  `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                  ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
-                }>A propos de nous</a>
-                <a href="#services" onClick={() => setIsMenuOpen(false)} className={
-                  `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                  ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
-                }>Services</a>
-                <a href="tel:0666858569" onClick={() => setIsMenuOpen(false)} className={
-                  `mt-4 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 
-                  ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`
-                }>Appeler</a>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-      {/* Page Content */}
-      <main className="pt-0">
-        {/* Add an anchor for Accueil (home) */}
-        <div id="home" />
-        <HeroSection darkMode={darkMode} />
-        {/* Services Section */}
-        <section id="services" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-[#0f172a]' : 'bg-gray-50'}`}>
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6 }}
-              className={`text-4xl md:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}
-            >
-              Nos Services
-            </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {servicesData.map((service, index) => (
+                {/* Backdrop */}
                 <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="transition-colors duration-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.15 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute inset-0 bg-black"
+                />
+                {/* Menu Panel */}
+                <motion.div
+                  ref={menuRef}
+                  initial={{ x: 100 }}
+                  animate={{ x: 0 }}
+                  exit={{ x: 100 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  className={
+                    `relative ml-auto w-72 h-full flex flex-col pt-16 px-6 gap-6 rounded-l-2xl border-l \
+                    bg-white/60 dark:bg-gray-900/60 border-none text-blue-900 dark:text-white \
+                    backdrop-blur-lg shadow-2xl`
+                  }
                 >
-                  <ServiceCard {...service} darkMode={darkMode} />
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="absolute top-4 right-4 text-2xl bg-transparent border-none text-gray-700 dark:text-gray-200 hover:text-red-500 focus:outline-none p-2 rounded-lg"
+                    aria-label="Fermer le menu"
+                  >
+                    &times;
+                  </button>
+                  <a href="#home" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                  }>Accueil</a>
+                  <a href="#engagements" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                  }>Nos Engagements</a>
+                  <a href="#about" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                  }>A propos de nous</a>
+                  <a href="#services" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                  }>Services</a>
+                  <a href="tel:0666858569" onClick={() => setIsMenuOpen(false)} className={
+                    `mt-4 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 
+                    ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`
+                  }>Appeler</a>
                 </motion.div>
-              ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </header>
+        {/* Page Content */}
+        <main className="pt-0">
+          {/* Add an anchor for Accueil (home) */}
+          <div id="home" />
+          <HeroSection darkMode={darkMode} />
+          {/* Services Section */}
+          <section id="services" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-[#0f172a]' : 'bg-gray-50'}`}>
+            <div className="container mx-auto px-4">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6 }}
+                className={`text-4xl md:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}
+              >
+                Nos Services
+              </motion.h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {servicesData.map((service, index) => (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="transition-colors duration-300"
+                  >
+                    <ServiceCard {...service} darkMode={darkMode} />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+          <EngagementsSection darkMode={darkMode} />
+          {/* Add an anchor for About section with the correct id */}
+          <div id="about" />
+          <AboutSection darkMode={darkMode} />
+          {/* Floating Contact Buttons */}
+          <div className="fixed bottom-5 right-5 flex flex-col gap-3 z-50 items-end">
+            <motion.a
+              href="tel:0666858569"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.3
+              }}
+              className="bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+            >
+              <span>📞 Appeler maintenant</span>
+            </motion.a>
+            <motion.a
+              href="https://wa.me/212666858569"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.4
+              }}
+              className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+            >
+              <span>💬 WhatsApp</span>
+            </motion.a>
+          </div>
+        </main>
+        {/* Footer */}
+        <motion.footer 
+          initial={{ opacity: 0, y: 40 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.7 }}
+          className={`pt-16 pb-8 px-4 mt-12 shadow-inner rounded-t-3xl transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-blue-900 text-white'}`}
+        >
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* About/Logo */}
+            <div>
+              <img src={logoImg} alt="First Ambulance Logo" className="h-20 mb-6 drop-shadow-xl transition-transform duration-300 hover:scale-105" />
+              <p className="text-lg leading-relaxed text-white/90 font-light">
+                FIRST AMBULANCE, votre partenaire de confiance pour des services d'ambulance rapide et médicalisée à Casablanca et région.
+              </p>
+            </div>
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 tracking-wide">CONTACT</h3>
+              <ul className="space-y-2 text-white/90 text-lg font-medium">
+                <li className="transition-colors duration-200 hover:text-red-400">Casablanca, Maroc</li>
+                <li className="transition-colors duration-200 hover:text-red-400">ambulance.first.maroc@gmail.com</li>
+                <li className="transition-colors duration-200 hover:text-red-400">0666858569</li>
+              </ul>
+            </div>
+            {/* Useful Links */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 tracking-wide">LIENS UTILES</h3>
+              <ul className="space-y-2 text-white/90 text-lg font-medium">
+                <li><a href="#home" className="hover:text-red-400 transition-colors duration-200">Accueil</a></li>
+                <li><a href="#services" className="hover:text-red-400 transition-colors duration-200">Services</a></li>
+                <li><a href="#engagements" className="hover:text-red-400 transition-colors duration-200">Nos Engagements</a></li>
+                <li><a href="#about" className="hover:text-red-400 transition-colors duration-200">A propos de nous</a></li>
+              </ul>
             </div>
           </div>
-        </section>
-        <EngagementsSection darkMode={darkMode} />
-        {/* Add an anchor for About section with the correct id */}
-        <div id="about" />
-        <AboutSection darkMode={darkMode} />
-        {/* Floating Contact Buttons */}
-        <div className="fixed bottom-5 right-5 flex flex-col gap-3 z-50 items-end">
-          <motion.a
-            href="tel:0666858569"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-              delay: 0.3
-            }}
-            className="bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
-          >
-            <span>📞 Appeler maintenant</span>
-          </motion.a>
-          <motion.a
-            href="https://wa.me/212666858569"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-              delay: 0.4
-            }}
-            className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
-          >
-            <span>💬 WhatsApp</span>
-          </motion.a>
-        </div>
-      </main>
-      {/* Footer */}
-      <motion.footer 
-        initial={{ opacity: 0, y: 40 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.7 }}
-        className={`pt-16 pb-8 px-4 mt-12 shadow-inner rounded-t-3xl transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-blue-900 text-white'}`}
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* About/Logo */}
-          <div>
-            <img src={logoImg} alt="First Ambulance Logo" className="h-20 mb-6 drop-shadow-xl transition-transform duration-300 hover:scale-105" />
-            <p className="text-lg leading-relaxed text-white/90 font-light">
-              FIRST AMBULANCE, votre partenaire de confiance pour des services d'ambulance rapide et médicalisée à Casablanca et région.
-            </p>
-          </div>
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 tracking-wide">CONTACT</h3>
-            <ul className="space-y-2 text-white/90 text-lg font-medium">
-              <li className="transition-colors duration-200 hover:text-red-400">Casablanca, Maroc</li>
-              <li className="transition-colors duration-200 hover:text-red-400">ambulance.first.maroc@gmail.com</li>
-              <li className="transition-colors duration-200 hover:text-red-400">0666858569</li>
-            </ul>
-          </div>
-          {/* Useful Links */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 tracking-wide">LIENS UTILES</h3>
-            <ul className="space-y-2 text-white/90 text-lg font-medium">
-              <li><a href="#home" className="hover:text-red-400 transition-colors duration-200">Accueil</a></li>
-              <li><a href="#services" className="hover:text-red-400 transition-colors duration-200">Services</a></li>
-              <li><a href="#engagements" className="hover:text-red-400 transition-colors duration-200">Nos Engagements</a></li>
-              <li><a href="#about" className="hover:text-red-400 transition-colors duration-200">A propos de nous</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-12 text-center text-white/60 text-sm tracking-wide">© {new Date().getFullYear()} First Ambulance. Tous droits réservés.</div>
-      </motion.footer>
-    </div>
+          <div className="mt-12 text-center text-white/60 text-sm tracking-wide">© {new Date().getFullYear()} First Ambulance. Tous droits réservés.</div>
+        </motion.footer>
+      </div>
+    </>
   )
 }
 
