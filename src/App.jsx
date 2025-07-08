@@ -320,9 +320,10 @@ function EngagementsSection({ darkMode }) {
   );
 }
 
-function SOSMedecinSection({ darkMode }) {
+function SOSMedecinSection({ darkMode, id }) {
   return (
     <motion.section
+      id={id}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
@@ -419,6 +420,14 @@ function App() {
             <div className="hidden md:flex items-center gap-8">
               <a href="#home" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Accueil</a>
               <a href="#services" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Services</a>
+              {/* SOS Médecin Header Button (desktop) */}
+              <a
+                href="#sos-medecin"
+                className="hidden md:inline-block ml-2 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 focus:ring-2 focus:ring-accent-light bg-accent text-white hover:bg-accent-dark hover:scale-105 animate-pulse"
+                style={{ letterSpacing: '0.02em' }}
+              >
+                SOS Médecin
+              </a>
               <a href="#engagements" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Nos Engagements</a>
               <a href="#about" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>A propos de nous</a>
             </div>
@@ -495,6 +504,13 @@ function App() {
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
                     ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>Accueil</a>
+                  <a href="#services" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
+                  }>Services</a>
+                  <a href="#sos-medecin" onClick={() => setIsMenuOpen(false)} className={
+                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 bg-accent text-white hover:bg-accent-dark animate-pulse`
+                  }>SOS Médecin</a>
                   <a href="#engagements" onClick={() => setIsMenuOpen(false)} className={
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
                     ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
@@ -503,10 +519,6 @@ function App() {
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
                     ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>A propos de nous</a>
-                  <a href="#services" onClick={() => setIsMenuOpen(false)} className={
-                    `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
-                  }>Services</a>
                   <a href="tel:0666858569" onClick={() => setIsMenuOpen(false)} className={
                     `mt-4 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 
                     ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`
@@ -564,7 +576,7 @@ function App() {
           >
             SOS Médecin
           </motion.h1>
-          <SOSMedecinSection darkMode={darkMode} />
+          <SOSMedecinSection darkMode={darkMode} id="sos-medecin" />
           <EngagementsSection darkMode={darkMode} />
           {/* Add an anchor for About section with the correct id */}
           <div id="about" />
