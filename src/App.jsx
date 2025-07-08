@@ -11,6 +11,7 @@ import oxygeneADomicileImg from "./assets/oxygene-a-domicile.jpg";
 import infirmiereADomicileImg from "./assets/infirmiere-a-domicile.jpg";
 import transportAccompagneImg from "./assets/transport-accompagne.jpg";
 import logoImg from "./assets/logo.png";
+import sosImage from "./assets/sos.png";
 import { Helmet } from "react-helmet";
 
 const servicesData = [
@@ -66,7 +67,7 @@ const ServiceCard = ({ title, subtitle, description, image, darkMode }) => {
       <div className={`absolute inset-0 transition-all duration-300 z-0 ${darkMode ? 'bg-black/60 group-hover:bg-black/70' : 'bg-black/50 group-hover:bg-black/60'}`} />
       {/* Card Content */}
       <div className="relative z-10 p-6 text-white">
-        <h3 className={`text-xl font-bold mb-2 drop-shadow-lg transition-colors duration-300 ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{title}</h3>
+        <h3 className={`text-xl font-bold mb-2 drop-shadow-lg transition-colors duration-300 ${darkMode ? 'text-accent-light' : 'text-accent'}`}>{title}</h3>
         <p className="text-white/90 text-sm mb-1 drop-shadow transition-colors duration-300">{subtitle}</p>
         <AnimatePresence>
           {isExpanded && (
@@ -166,7 +167,7 @@ function AboutSection({ darkMode }) {
   return (
     <section className="max-w-6xl mx-auto px-4 py-20 transition-colors duration-300">
       <motion.h2
-        className={`text-4xl sm:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}
+        className={`text-4xl sm:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-secondary'}`}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
@@ -177,7 +178,7 @@ function AboutSection({ darkMode }) {
       <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 justify-center">
         {/* Text */}
         <motion.p
-          className={`text-lg leading-relaxed text-center md:text-left max-w-3xl transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
+          className={`text-lg leading-relaxed text-center md:text-left max-w-3xl transition-colors duration-300 ${darkMode ? 'text-muted-dark' : 'text-muted'}`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
@@ -259,7 +260,7 @@ function EngagementsSection({ darkMode }) {
       <div className={`absolute inset-0 w-full h-full bg-cover bg-fixed bg-center z-0 ${darkMode ? 'opacity-30' : 'opacity-80'}`} style={{ backgroundImage: "url('/src/assets/website-bg.jpg')" }} />
       <div className="relative z-10">
         <motion.h2
-          className={`text-4xl sm:text-5xl font-bold text-center mb-2 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}
+          className={`text-4xl sm:text-5xl font-bold text-center mb-2 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-secondary'}`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
@@ -267,7 +268,7 @@ function EngagementsSection({ darkMode }) {
         >
           Nos Engagements
         </motion.h2>
-        <p className={`text-center font-medium mb-12 max-w-2xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-blue-900'}`}>
+        <p className={`text-center font-medium mb-12 max-w-2xl mx-auto transition-colors duration-300 ${darkMode ? 'text-muted-dark' : 'text-secondary'}`}>
           Notre promesse : un service fiable, humain et professionnel pour tous vos besoins en transport sanitaire et assistance médicale.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -276,24 +277,24 @@ function EngagementsSection({ darkMode }) {
             {leftEngagements.map((item, i) => (
               <motion.div
                 key={item.title}
-                className={`backdrop-blur-md rounded-xl shadow-md p-6 transition-colors duration-300 ${darkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-white/20 border border-white/30'}`}
+                className={`backdrop-blur-md rounded-xl shadow-md p-6 transition-colors duration-300 ${darkMode ? 'bg-primary-light/50 border border-primary' : 'bg-surface/20 border border-surface/30'}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <h3 className={`font-bold text-lg mb-1 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}>{item.title}</h3>
-                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-blue-900/80'}`}>{item.desc}</p>
+                <h3 className={`font-bold text-lg mb-1 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-secondary'}`}>{item.title}</h3>
+                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-muted-dark' : 'text-secondary/80'}`}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
           {/* Center Logo + Contact */}
           <div className="flex flex-col items-center gap-6">
             <img src={logoImg} alt="First Ambulance Logo" className="w-32 sm:w-40 mx-auto drop-shadow-xl" />
-            <div className="bg-red-600 text-white font-bold text-center rounded-lg px-6 py-3 text-lg shadow-lg hover:bg-red-700 transition-colors duration-300">
+            <div className="bg-accent text-white font-bold text-center rounded-lg px-6 py-3 text-lg shadow-lg hover:bg-accent-dark transition-colors duration-300">
               📞 0666 85 85 69
             </div>
-            <p className={`mt-2 text-center text-sm sm:text-base font-medium transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-blue-900'}`}>
+            <p className={`mt-2 text-center text-sm sm:text-base font-medium transition-colors duration-300 ${darkMode ? 'text-muted-dark' : 'text-secondary'}`}>
               INTERVENTION RAPIDE 24H/24 – PARTOUT AU MAROC
             </p>
           </div>
@@ -302,20 +303,58 @@ function EngagementsSection({ darkMode }) {
             {rightEngagements.map((item, i) => (
               <motion.div
                 key={item.title}
-                className={`backdrop-blur-md rounded-xl shadow-md p-6 transition-colors duration-300 ${darkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-white/20 border border-white/30'}`}
+                className={`backdrop-blur-md rounded-xl shadow-md p-6 transition-colors duration-300 ${darkMode ? 'bg-primary-light/50 border border-primary' : 'bg-surface/20 border border-surface/30'}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <h3 className={`font-bold text-lg mb-1 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}>{item.title}</h3>
-                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-blue-900/80'}`}>{item.desc}</p>
+                <h3 className={`font-bold text-lg mb-1 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-secondary'}`}>{item.title}</h3>
+                <p className={`text-sm transition-colors duration-300 ${darkMode ? 'text-muted-dark' : 'text-secondary/80'}`}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function SOSMedecinSection({ darkMode }) {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.7 }}
+      className={`py-20 px-4 max-w-7xl mx-auto transition-colors duration-300 ${darkMode ? 'bg-primary' : 'bg-surface'}`}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: false }}
+        >
+          <img src={sosImage} alt="Médecin à domicile" className="w-full rounded-lg shadow-md object-cover" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          viewport={{ once: false }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-red-600 dark:text-red-400">
+            SOS Médecin – Intervention Médicale Rapide à Domicile
+          </h2>
+          <p className={`text-lg leading-relaxed ${darkMode ? 'text-white' : 'text-secondary'}`}> 
+            Notre équipe de professionnels de la santé est prête à intervenir rapidement en cas d’urgence médicale.
+            Que ce soit pour des consultations médicales urgentes, des diagnostics rapides ou des premiers soins,
+            nous sommes là pour vous 24 heures sur 24.
+          </p>
+        </motion.div>
+      </div>
+    </motion.section>
   );
 }
 
@@ -364,7 +403,7 @@ function App() {
         <meta httpEquiv="Content-Language" content="fr" />
         <html lang="fr" />
       </Helmet>
-      <div className={darkMode ? "min-h-screen bg-gray-900 text-white transition-colors duration-300" : "min-h-screen bg-white text-gray-900 transition-colors duration-300"}>
+      <div className={darkMode ? "min-h-screen bg-primary text-white transition-colors duration-300" : "min-h-screen bg-surface text-primary transition-colors duration-300"}>
         {/* Main Nav Bar */}
         <header className="w-full sticky top-0 z-50">
           <nav className={
@@ -378,10 +417,10 @@ function App() {
             </a>
             {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#home" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Accueil</a>
-              <a href="#services" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Services</a>
-              <a href="#engagements" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Nos Engagements</a>
-              <a href="#about" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400 focus:bg-gray-800 focus:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>A propos de nous</a>
+              <a href="#home" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Accueil</a>
+              <a href="#services" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Services</a>
+              <a href="#engagements" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>Nos Engagements</a>
+              <a href="#about" className={`font-semibold text-lg px-2 py-1 rounded-lg transition-all duration-200 ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light focus:bg-gray-800 focus:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600 focus:bg-red-100 focus:text-red-700'}`}>A propos de nous</a>
             </div>
             {/* Call to Action Button */}
             <a href="tel:0666858569" className={`hidden md:inline-block ml-6 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 focus:ring-2 focus:ring-red-300 ${darkMode ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-105' : 'bg-red-600 text-white hover:bg-red-700 hover:scale-105'}`}>Appeler</a>
@@ -454,19 +493,19 @@ function App() {
                   </button>
                   <a href="#home" onClick={() => setIsMenuOpen(false)} className={
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>Accueil</a>
                   <a href="#engagements" onClick={() => setIsMenuOpen(false)} className={
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>Nos Engagements</a>
                   <a href="#about" onClick={() => setIsMenuOpen(false)} className={
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>A propos de nous</a>
                   <a href="#services" onClick={() => setIsMenuOpen(false)} className={
                     `font-semibold text-lg px-2 py-2 rounded-lg transition-all duration-200 
-                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-red-400' : 'text-blue-900 hover:bg-red-50 hover:text-red-600'}`
+                    ${darkMode ? 'text-white hover:bg-gray-800 hover:text-accent-light' : 'text-secondary hover:bg-red-50 hover:text-red-600'}`
                   }>Services</a>
                   <a href="tel:0666858569" onClick={() => setIsMenuOpen(false)} className={
                     `mt-4 px-5 py-2 rounded-xl shadow-md font-semibold text-base transition-all duration-200 
@@ -483,14 +522,14 @@ function App() {
           <div id="home" />
           <HeroSection darkMode={darkMode} />
           {/* Services Section */}
-          <section id="services" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-[#0f172a]' : 'bg-gray-50'}`}>
+          <section id="services" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-primary' : 'bg-surface'}`}>
             <div className="container mx-auto px-4">
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6 }}
-                className={`text-4xl md:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}
+                className={`text-4xl md:text-5xl font-bold text-center mb-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-secondary'}`}
               >
                 Nos Services
               </motion.h2>
@@ -510,6 +549,22 @@ function App() {
               </div>
             </div>
           </section>
+          {/* SOS Médecin Section */}
+          {/* Eye-catching SOS Médecin heading above the section */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8, y: -30 }}
+            whileInView={{ opacity: 1, scale: 1.08, y: 0 }}
+            transition={{ type: 'spring', stiffness: 180, damping: 12 }}
+            viewport={{ once: false }}
+            className={`text-5xl sm:text-7xl font-extrabold text-center mb-2 drop-shadow-lg tracking-tight select-none
+              ${darkMode ? 'text-accent-light' : 'text-accent'}
+              animate-pulse
+            `}
+            style={{ letterSpacing: '0.04em' }}
+          >
+            SOS Médecin
+          </motion.h1>
+          <SOSMedecinSection darkMode={darkMode} />
           <EngagementsSection darkMode={darkMode} />
           {/* Add an anchor for About section with the correct id */}
           <div id="about" />
@@ -554,7 +609,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true }} 
           transition={{ duration: 0.7 }}
-          className={`pt-16 pb-8 px-4 mt-12 shadow-inner rounded-t-3xl transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-blue-900 text-white'}`}
+          className={`pt-16 pb-8 px-4 mt-12 shadow-inner rounded-t-3xl transition-colors duration-300 ${darkMode ? 'bg-primary text-white' : 'bg-secondary-dark text-white'}`}
         >
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* About/Logo */}
@@ -568,19 +623,19 @@ function App() {
             <div>
               <h3 className="text-2xl font-bold mb-4 tracking-wide">CONTACT</h3>
               <ul className="space-y-2 text-white/90 text-lg font-medium">
-                <li className="transition-colors duration-200 hover:text-red-400">Casablanca, Maroc</li>
-                <li className="transition-colors duration-200 hover:text-red-400">ambulance.first.maroc@gmail.com</li>
-                <li className="transition-colors duration-200 hover:text-red-400">0666858569</li>
+                <li className="transition-colors duration-200 hover:text-accent-light">Casablanca, Maroc</li>
+                <li className="transition-colors duration-200 hover:text-accent-light">ambulance.first.maroc@gmail.com</li>
+                <li className="transition-colors duration-200 hover:text-accent-light">0666858569</li>
               </ul>
             </div>
             {/* Useful Links */}
             <div>
               <h3 className="text-2xl font-bold mb-4 tracking-wide">LIENS UTILES</h3>
               <ul className="space-y-2 text-white/90 text-lg font-medium">
-                <li><a href="#home" className="hover:text-red-400 transition-colors duration-200">Accueil</a></li>
-                <li><a href="#services" className="hover:text-red-400 transition-colors duration-200">Services</a></li>
-                <li><a href="#engagements" className="hover:text-red-400 transition-colors duration-200">Nos Engagements</a></li>
-                <li><a href="#about" className="hover:text-red-400 transition-colors duration-200">A propos de nous</a></li>
+                <li><a href="#home" className="hover:text-accent-light transition-colors duration-200">Accueil</a></li>
+                <li><a href="#services" className="hover:text-accent-light transition-colors duration-200">Services</a></li>
+                <li><a href="#engagements" className="hover:text-accent-light transition-colors duration-200">Nos Engagements</a></li>
+                <li><a href="#about" className="hover:text-accent-light transition-colors duration-200">A propos de nous</a></li>
               </ul>
             </div>
           </div>
@@ -593,11 +648,3 @@ function App() {
 
 export default App
 
-// --- GLOBAL MODERNIZATION ---
-// 1. Add smooth transitions to all links and buttons
-// 2. Use rounded-2xl, shadow-xl, font-medium, tracking-wide, and modern spacing
-// 3. Add subtle hover/active effects to nav, cards, and buttons
-// 4. Use Framer Motion fade/slide-in for main sections
-// 5. Consistent color palette and font weights
-// 6. Responsive and visually clean
-// (Already applied above and in previous code)
