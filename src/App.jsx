@@ -388,19 +388,19 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>First Ambulance | Ambulance Privée et Médicalisée 24/7 au Maroc</title>
-        <meta name="description" content="Service d'ambulance privée et médicalisée disponible 24h/24 et 7j/7 partout au Maroc. Intervention rapide, personnel qualifié, équipement moderne." />
-        <meta name="keywords" content="ambulance Casablanca, ambulance Maroc, transport médical, SAMU, urgence, service médicalisé, soins à domicile, infirmière, médecin à domicile" />
-        <meta property="og:title" content="First Ambulance | Service d'Ambulance Privée au Maroc" />
-        <meta property="og:description" content="Ambulances médicalisées et urgences 24h/7 dans tout le Maroc. Contact rapide via appel ou WhatsApp." />
-        <meta property="og:image" content="/src/assets/logo.png" />
+        <meta name="description" content="Service d'ambulance privée et médicalisée 24h/24 à Casablanca, Anfa, Sidi Bernoussi, Maarif, Hay Hassani, Ain Sebaa, Sidi Moumen, Derb Sultan, El Fida, Oulfa, Ben M'sik, Sbata, Roches Noires, Bourgogne, Belvédère, et partout au Maroc. Intervention rapide, personnel SAMU, soins à domicile." />
+        <meta name="keywords" content="ambulance Casablanca, ambulance Maroc, ambulance privée Anfa, Sidi Bernoussi, Hay Hassani, Maarif, Ain Sebaa, Sidi Moumen, Derb Sultan, El Fida, Anfa, Oulfa, Ben M'sik, Sbata, Roches Noires, Bourgogne, Belvédère, transport médical, urgence SAMU, médecin à domicile, soins médicaux Maroc, infirmière Casablanca" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="language" content="fr" />
+        <meta property="og:title" content="First Ambulance | Service Médical 24h/7 à Casablanca et au Maroc" />
+        <meta property="og:description" content="Ambulances privées et médicalisées à Casablanca (Ain Sebaa, Maarif, Sidi Bernoussi, Hay Hassani, Sidi Moumen, Derb Sultan, El Fida, Anfa, Oulfa, Ben M'sik, Sbata, Roches Noires, Bourgogne, Belvédère) et dans tout le Maroc. Service rapide, professionnel, et disponible 24h/7." />
+        <meta property="og:image" content="https://ambulance.vercel.app/preview.jpg" />
         <meta property="og:url" content="https://ambulance.vercel.app" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="First Ambulance – Urgences Médicales Maroc 24h/7" />
-        <meta name="twitter:description" content="Ambulances privées, transferts médicalisés, personnel SAMU formé – Partout au Maroc." />
-        <meta name="twitter:image" content="/src/assets/logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="twitter:title" content="First Ambulance – Urgences Médicales 24h/7 à Casablanca et Maroc" />
+        <meta name="twitter:description" content="Service d'ambulance privée 24h/7, transport médical, médecin à domicile dans les régions de Casablanca (Ain Sebaa, Maarif, Sidi Bernoussi, Hay Hassani, Sidi Moumen, Derb Sultan, El Fida, Anfa, Oulfa, Ben M'sik, Sbata, Roches Noires, Bourgogne, Belvédère) et dans tout le pays." />
+        <meta name="twitter:image" content="https://ambulance.vercel.app/preview.jpg" />
         <meta httpEquiv="Content-Language" content="fr" />
         <html lang="fr" />
       </Helmet>
